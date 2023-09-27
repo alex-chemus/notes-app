@@ -88,5 +88,10 @@ namespace Notes
             new NotesList().Show();
             this.Hide();
         }
+
+        private void calculatorButton_Click(object sender, EventArgs e)
+        {
+            new Calculator().Show();
+        }
     }
 }

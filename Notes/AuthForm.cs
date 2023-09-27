@@ -65,10 +65,5 @@ namespace Notes
                 RegisterUser(login, password);
             }
         }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }
