@@ -59,7 +59,7 @@ namespace Notes
             Application.Exit();
         }
 
-        private void submitButton_Click(object sender, EventArgs e)
+        private int insertNote()
         {
             datePicker.Format = DateTimePickerFormat.Custom;
             datePicker.CustomFormat = "yyyy.MM.dd";
@@ -74,7 +74,33 @@ namespace Notes
                 $") VALUES (" +
                 $"\'{title}\', \'{date}\', \'{text}\', {userId})";
 
-            db.InsertRecord(NewNoteQuery);
+            return db.InsertRecord(NewNoteQuery);
+        }
+
+        private void insertCashbookRecord(int noteId)
+        {
+            int sum;
+            if (Int32.TryParse(sumTextBox.Text, out sum))
+            {
+                datePicker.Format = DateTimePickerFormat.Custom;
+                datePicker.CustomFormat = "yyyy.MM.dd";
+
+                string NewCashbookRecordQuery = $"INSERT INTO cashBook(" +
+                    $"`noteId`, `recordDate`, `isIncome`, `amount`" +
+                    $") VALUES (" +
+                    $"{noteId}, '{datePicker.Text}', {incomeCheckbox.Checked}, {sum})";
+                db.InsertRecord(NewCashbookRecordQuery);
+            }
+            else
+            {
+                MessageBox.Show("Неверно введена сумма");
+            }
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            int noteId = insertNote();
+            insertCashbookRecord(noteId);
 
             titleTextBox.Text = "";
             textBox.Text = "";

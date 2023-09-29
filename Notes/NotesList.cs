@@ -70,5 +70,11 @@ namespace Notes
                 }
             }
         }
+
+        private void savingsButton_Click(object sender, EventArgs e)
+        {
+            new Savings().Show();
+            this.Hide();
+        }
     }
 }

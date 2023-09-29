@@ -29,12 +29,14 @@ namespace Notes
             return counter;
         }
 
-        public void InsertRecord(string query)
+        public int InsertRecord(string query)
         {
             connection.Open();
             MySqlCommand command = new MySqlCommand(query, connection);
             command.ExecuteNonQuery();
+            int lastInsertedId = (int)command.LastInsertedId;
             connection.Close();
+            return lastInsertedId;
         }
 
         public DataRow getSignelRecord(string query) {
