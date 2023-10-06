@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Notes.Core;
-using Notes.Core.Repositories;
+using Notes.Core.Models;
 
 namespace Notes.Db.Repositories
 {
@@ -33,12 +33,15 @@ namespace Notes.Db.Repositories
         {
             var list = new List<Income>();
             foreach (DataRow row in records.Rows)
-                list.Add(new IncomeImp(
-                    (int)row["id"],
-                    row["name"].ToString(),
-                    (int)row["amount"],
-                    mapPeriodToEnum(row["period"].ToString())
-                ));
+            {
+                list.Add(new IncomeDto
+                {
+                    id = (int)row["id"],
+                    name = (string)row["name"],
+                    sum = (int)row["amount"],
+                    period = mapPeriodToEnum((string)row["period"])
+                });
+            }
             return list;
         }
 
@@ -52,7 +55,9 @@ namespace Notes.Db.Repositories
         public void Add(AddIncomeDto dto)
         {
             string query = $"insert into incomes (" +
-                $"";
+                $"`name`, `amount`, `period`" +
+                $") values (" +
+                $"'{dto.name}', '{dto.sum}', {dto.period})";
             db.InsertRecord(query);
         }
     }

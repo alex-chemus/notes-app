@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Notes.Core.Repositories;
+using Notes.Core.Models;
 
 namespace Notes.Core.Services
 {
     internal class MonthIncomeDto
     {
-        public int month;
-        public int sum;
-
-        public MonthIncomeDto(int month, int sum)
-        {
-            this.month = month;
-            this.sum = sum;
-        }
+        public int month { get; set; }
+        public int sum { get; set; }
     }
+}
 
+namespace Notes.Core.Services
+{
     internal class IncomeService
     {
         private IncomeRepository incomeRepository;
@@ -33,7 +30,6 @@ namespace Notes.Core.Services
         private MonthIncomeDto getMonthIncome(int month)
         {
             int sum = 0;
-
             List<Income> incomes = incomeRepository.GetAll();
 
             foreach (var income in incomes)
@@ -59,16 +55,14 @@ namespace Notes.Core.Services
                 }
             }
 
-            return new MonthIncomeDto(month, sum);
+            return new MonthIncomeDto { month = month, sum = sum };
         }
 
         public List<MonthIncomeDto> getYearIncome()
         {
             var yearIncome = new List<MonthIncomeDto>();
-
             for (int i=1; i<=12; i++)
                 yearIncome.Add(getMonthIncome(i));
-
             return yearIncome;
         }
     }
