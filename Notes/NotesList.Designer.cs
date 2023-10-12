@@ -33,8 +33,9 @@
             showNotesButton = new Button();
             notesListView = new ListView();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            savingsButton = new Button();
             flowLayoutPanel2 = new FlowLayoutPanel();
+            savingsButton = new Button();
+            budgetButton = new Button();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -92,6 +93,7 @@
             flowLayoutPanel1.Controls.Add(showNotesButton);
             flowLayoutPanel1.Controls.Add(notesListView);
             flowLayoutPanel1.Controls.Add(createNoteButton);
+            flowLayoutPanel1.Controls.Add(budgetButton);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -99,16 +101,6 @@
             flowLayoutPanel1.Padding = new Padding(50);
             flowLayoutPanel1.Size = new Size(875, 739);
             flowLayoutPanel1.TabIndex = 5;
-            // 
-            // savingsButton
-            // 
-            savingsButton.Location = new Point(208, 3);
-            savingsButton.Name = "savingsButton";
-            savingsButton.Size = new Size(91, 23);
-            savingsButton.TabIndex = 5;
-            savingsButton.Text = "Копилка";
-            savingsButton.UseVisualStyleBackColor = true;
-            savingsButton.Click += savingsButton_Click;
             // 
             // flowLayoutPanel2
             // 
@@ -121,6 +113,27 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(302, 164);
             flowLayoutPanel2.TabIndex = 6;
+            // 
+            // savingsButton
+            // 
+            savingsButton.Location = new Point(208, 3);
+            savingsButton.Name = "savingsButton";
+            savingsButton.Size = new Size(91, 23);
+            savingsButton.TabIndex = 5;
+            savingsButton.Text = "Копилка";
+            savingsButton.UseVisualStyleBackColor = true;
+            savingsButton.Click += savingsButton_Click;
+            // 
+            // budgetButton
+            // 
+            budgetButton.Location = new Point(53, 586);
+            budgetButton.Margin = new Padding(3, 10, 3, 3);
+            budgetButton.Name = "budgetButton";
+            budgetButton.Size = new Size(163, 23);
+            budgetButton.TabIndex = 7;
+            budgetButton.Text = "Финансы";
+            budgetButton.UseVisualStyleBackColor = true;
+            budgetButton.Click += budgetButton_Click;
             // 
             // NotesList
             // 
@@ -147,5 +160,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private Button savingsButton;
+        private Button budgetButton;
     }
 }

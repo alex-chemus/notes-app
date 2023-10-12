@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Notes.Core.Budget;
+using Notes.Repos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +15,18 @@ namespace Notes
     public partial class Savings : Form
     {
         private DbHelper db;
+        private BudgetService budgetService;
 
         public Savings()
         {
             InitializeComponent();
             db = new DbHelper();
+
+            int userId = UserState.getInstance().id;
+            var regularBudgetRepo = new RegularBudgetXamppRepo();
+            var singularBudgetRepo = new SingularBudgetXamppRepo();
+
+            budgetService = new BudgetService(userId, regularBudgetRepo, singularBudgetRepo);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -65,11 +74,8 @@ namespace Notes
 
         private void showButton_Click(object sender, EventArgs e)
         {
-            dataGridView.Rows.Clear();
+            /*dataGridView.Rows.Clear();
 
-            int year = dateTimePicker.Value.Year;
-            int month = dateTimePicker.Value.Month;
-            int daysInMonth = DateTime.DaysInMonth(year, month);
 
             for (int dayNumber = 1; dayNumber <= daysInMonth; dayNumber++)
             {
@@ -77,6 +83,19 @@ namespace Notes
                 Int64 expense = getTodaysRecords(dayNumber, false);
 
                 if (income != 0 || expense != 0) insertDataGridRow(dayNumber, income, expense);
+            }*/
+            var summary = budgetService.getSummary();
+            
+            foreach (var item in summary)
+            {
+                int rowIndex = dataGridView.Rows.Add();
+                var row = dataGridView.Rows[rowIndex];
+                row.Cells["month"].Value = item.month;
+                row.Cells["income"].Value = item.income;
+                row.Cells["expense"].Value = item.expense;
+                row.Cells["diff"].Value = item.diff;
+
+                //if (item.income != 0) MessageBox.Show(item.income.ToString());
             }
         }
 

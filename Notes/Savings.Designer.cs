@@ -30,14 +30,14 @@
         {
             dateTimePicker = new DateTimePicker();
             dataGridView = new DataGridView();
-            date = new DataGridViewTextBoxColumn();
-            income = new DataGridViewTextBoxColumn();
-            expense = new DataGridViewTextBoxColumn();
-            diff = new DataGridViewTextBoxColumn();
             showButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             backButton = new Button();
             flowLayoutPanel2 = new FlowLayoutPanel();
+            month = new DataGridViewTextBoxColumn();
+            income = new DataGridViewTextBoxColumn();
+            expense = new DataGridViewTextBoxColumn();
+            diff = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -57,37 +57,13 @@
             // 
             dataGridView.BackgroundColor = Color.MintCream;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { date, income, expense, diff });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { month, income, expense, diff });
             dataGridView.GridColor = SystemColors.ControlDarkDark;
             dataGridView.Location = new Point(53, 181);
             dataGridView.Name = "dataGridView";
             dataGridView.RowTemplate.Height = 25;
             dataGridView.Size = new Size(440, 552);
             dataGridView.TabIndex = 2;
-            // 
-            // date
-            // 
-            date.Frozen = true;
-            date.HeaderText = "Дата";
-            date.Name = "date";
-            // 
-            // income
-            // 
-            income.Frozen = true;
-            income.HeaderText = "Доход";
-            income.Name = "income";
-            // 
-            // expense
-            // 
-            expense.Frozen = true;
-            expense.HeaderText = "Расход";
-            expense.Name = "expense";
-            // 
-            // diff
-            // 
-            diff.HeaderText = "Итог";
-            diff.Name = "diff";
-            diff.ReadOnly = true;
             // 
             // showButton
             // 
@@ -135,6 +111,30 @@
             flowLayoutPanel2.Size = new Size(299, 29);
             flowLayoutPanel2.TabIndex = 5;
             // 
+            // month
+            // 
+            month.Frozen = true;
+            month.HeaderText = "Месяц";
+            month.Name = "month";
+            // 
+            // income
+            // 
+            income.Frozen = true;
+            income.HeaderText = "Доход";
+            income.Name = "income";
+            // 
+            // expense
+            // 
+            expense.Frozen = true;
+            expense.HeaderText = "Расход";
+            expense.Name = "expense";
+            // 
+            // diff
+            // 
+            diff.HeaderText = "Итог";
+            diff.Name = "diff";
+            diff.ReadOnly = true;
+            // 
             // Savings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -156,12 +156,12 @@
         private DateTimePicker dateTimePicker;
         private DataGridView dataGridView;
         private Button showButton;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn income;
-        private DataGridViewTextBoxColumn expense;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button backButton;
         private FlowLayoutPanel flowLayoutPanel2;
+        private DataGridViewTextBoxColumn month;
+        private DataGridViewTextBoxColumn income;
+        private DataGridViewTextBoxColumn expense;
         private DataGridViewTextBoxColumn diff;
     }
 }

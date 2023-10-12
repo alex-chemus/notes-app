@@ -11,7 +11,7 @@ namespace Notes
 {
     internal class DbHelper
     {
-        private string connectParams = "datasource=127.0.0.1;port=3306;username=root;password=;database=notesApp;";
+        private string connectParams = "datasource=127.0.0.1;port=3306;username=root;password=;database=karandash;";
         private MySqlConnection connection;
 
         public DbHelper() { 

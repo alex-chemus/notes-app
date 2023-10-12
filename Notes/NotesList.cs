@@ -76,5 +76,11 @@ namespace Notes
             new Savings().Show();
             this.Hide();
         }
+
+        private void budgetButton_Click(object sender, EventArgs e)
+        {
+            new BudgetForm().Show();
+            Hide();
+        }
     }
 }

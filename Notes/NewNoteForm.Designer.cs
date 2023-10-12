@@ -39,13 +39,9 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            incomeCheckbox = new CheckBox();
-            sumTextBox = new TextBox();
-            flowLayoutPanel3 = new FlowLayoutPanel();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // title
@@ -145,7 +141,6 @@
             flowLayoutPanel1.Controls.Add(backButton);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Controls.Add(textBox);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel3);
             flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
@@ -181,39 +176,10 @@
             flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel2.Controls.Add(submitButton);
             flowLayoutPanel2.Controls.Add(calculatorButton);
-            flowLayoutPanel2.Location = new Point(53, 510);
+            flowLayoutPanel2.Location = new Point(53, 440);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(285, 30);
             flowLayoutPanel2.TabIndex = 15;
-            // 
-            // incomeCheckbox
-            // 
-            incomeCheckbox.AutoSize = true;
-            incomeCheckbox.Location = new Point(1, 1);
-            incomeCheckbox.Margin = new Padding(1, 1, 40, 1);
-            incomeCheckbox.Name = "incomeCheckbox";
-            incomeCheckbox.Size = new Size(60, 19);
-            incomeCheckbox.TabIndex = 14;
-            incomeCheckbox.Text = "Доход";
-            incomeCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // sumTextBox
-            // 
-            sumTextBox.Location = new Point(104, 3);
-            sumTextBox.Name = "sumTextBox";
-            sumTextBox.Size = new Size(100, 23);
-            sumTextBox.TabIndex = 16;
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.AutoSize = true;
-            flowLayoutPanel3.Controls.Add(incomeCheckbox);
-            flowLayoutPanel3.Controls.Add(sumTextBox);
-            flowLayoutPanel3.Location = new Point(51, 438);
-            flowLayoutPanel3.Margin = new Padding(1, 1, 1, 40);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(207, 29);
-            flowLayoutPanel3.TabIndex = 17;
             // 
             // NewNoteForm
             // 
@@ -230,8 +196,6 @@
             tableLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -247,8 +211,5 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private CheckBox incomeCheckbox;
-        private TextBox sumTextBox;
     }
 }
