@@ -29,61 +29,10 @@ namespace Notes
             budgetService = new BudgetService(userId, regularBudgetRepo, singularBudgetRepo);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private int getTodaysRecords(int dayNumber, bool isIncome)
-        {
-            int year = dateTimePicker.Value.Year;
-            int month = dateTimePicker.Value.Month;
-            DateTime date = new DateTime(year, month, dayNumber);
-
-            string cashRecordsQuery = $"SELECT SUM(amount) as 'amount' " +
-                $"FROM cashBook WHERE " +
-                $"recordDate = '{date.ToString("yyyy-MM-dd")}' " +
-                $"AND isIncome = {isIncome};";
-
-            try
-            {
-                DataRow record = db.getSignelRecord(cashRecordsQuery);
-                int amount;
-                Int32.TryParse(record["amount"].ToString(), out amount);
-                return amount;
-            }
-            catch
-            {
-                return 0;
-            }
-        }
-
-        private void insertDataGridRow(int dayNumber, Int64 income, Int64 expense)
-        {
-            int year = dateTimePicker.Value.Year;
-            int month = dateTimePicker.Value.Month;
-            DateTime date = new DateTime(year, month, dayNumber);
-
-            int rowIndex = dataGridView.Rows.Add();
-            var row = dataGridView.Rows[rowIndex];
-            row.Cells["date"].Value = date.ToString("dd.MM.yyyy");
-            row.Cells["income"].Value = income.ToString();
-            row.Cells["expense"].Value = expense.ToString();
-            row.Cells["diff"].Value = (income - expense).ToString();
-        }
-
         private void showButton_Click(object sender, EventArgs e)
         {
-            /*dataGridView.Rows.Clear();
+            dataGridView.Rows.Clear();
 
-
-            for (int dayNumber = 1; dayNumber <= daysInMonth; dayNumber++)
-            {
-                Int64 income = getTodaysRecords(dayNumber, true);
-                Int64 expense = getTodaysRecords(dayNumber, false);
-
-                if (income != 0 || expense != 0) insertDataGridRow(dayNumber, income, expense);
-            }*/
             var summary = budgetService.getSummary();
             
             foreach (var item in summary)
@@ -94,8 +43,6 @@ namespace Notes
                 row.Cells["income"].Value = item.income;
                 row.Cells["expense"].Value = item.expense;
                 row.Cells["diff"].Value = item.diff;
-
-                //if (item.income != 0) MessageBox.Show(item.income.ToString());
             }
         }
 

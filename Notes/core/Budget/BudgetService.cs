@@ -14,6 +14,9 @@ internal class BudgetService
     private IRegularBudgetRepo regularBudgetRepo;
     private ISingularBudgetRepo singularBudgetRepo;
 
+    private List<IRegularBudgetItem> regularExpenses;
+    private List<IRegularBudgetItem> regularIncomes;
+
     public BudgetService(int userId, IRegularBudgetRepo regularBudgetRepo, ISingularBudgetRepo singularBudgetRepo)
     {
         this.userId = userId;
@@ -28,6 +31,7 @@ internal class BudgetService
     private int getMonthRegularIncome(int month)
     {
         int amount = 0;
+        if (regularIncomes == null) regularIncomes = regularBudgetRepo.getIncomes(userId);
         var incomes = regularBudgetRepo.getIncomes(userId);
         foreach (var income in incomes)
         {
@@ -50,8 +54,8 @@ internal class BudgetService
     private int getMonthRegularExpense(int month)
     {
         int amount = 0;
-        var expenses = regularBudgetRepo.getExpenses(userId);
-        foreach (var expense in expenses)
+        if (regularExpenses == null) regularExpenses = regularBudgetRepo.getExpenses(userId);
+        foreach (var expense in regularExpenses)
         {
             switch (expense.period)
             {

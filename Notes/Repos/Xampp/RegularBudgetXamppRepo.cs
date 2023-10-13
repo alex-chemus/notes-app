@@ -49,7 +49,7 @@ class RegularBudgetXamppRepo : IRegularBudgetRepo
 
         connection.Close();
 
-        return new List<IRegularBudgetItem>();
+        return expenses;
     }
 
     public List<IRegularBudgetItem> getIncomes(int userId)
@@ -60,11 +60,11 @@ class RegularBudgetXamppRepo : IRegularBudgetRepo
         var ds = new DataSet();
         adapter.Fill(ds);
 
-        var expenses = new List<IRegularBudgetItem>();
+        var incomes = new List<IRegularBudgetItem>();
 
         foreach (DataRow row in ds.Tables[0].Rows)
         {
-            expenses.Add(new RegularBudgetItem
+            incomes.Add(new RegularBudgetItem
             {
                 amount = (int)row["amount"],
                 id = (int)row["id"],
@@ -76,6 +76,6 @@ class RegularBudgetXamppRepo : IRegularBudgetRepo
 
         connection.Close();
 
-        return new List<IRegularBudgetItem>();
+        return incomes;
     }
 }
