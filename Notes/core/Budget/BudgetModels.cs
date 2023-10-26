@@ -51,6 +51,12 @@ record SingularBudgetCreationDto
     public int userId { get; init; }
 }
 
+record GetPeriodDto
+{
+    public Period id { get; init; }
+    public string title { get; init; }
+}
+
 interface IRegularBudgetRepo
 {
     public void addItem(int userId, RegularBudgetCreationDto budgetItem);
@@ -63,4 +69,9 @@ interface ISingularBudgetRepo
     public void addItem(int userId, SingularBudgetCreationDto budgetItem);
     public int getMonthExpense(int userId, int month);
     public int getMonthIncome(int userId, int month);
+}
+
+interface IPeriodRepo
+{
+    public List<GetPeriodDto> getAllPeriods();
 }

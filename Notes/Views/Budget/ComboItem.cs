@@ -1,11 +1,12 @@
-﻿using Notes.Core.Budget;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notes;
+using Notes.Core.Budget;
+
+namespace Notes.Views.Budget;
 
 class ComboItem
 {

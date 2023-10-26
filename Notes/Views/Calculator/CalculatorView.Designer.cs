@@ -1,6 +1,6 @@
 ﻿namespace Notes
 {
-    partial class Calculator
+    partial class CalculatorView
     {
         /// <summary>
         /// Required designer variable.

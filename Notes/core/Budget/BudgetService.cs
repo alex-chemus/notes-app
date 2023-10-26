@@ -10,23 +10,20 @@ record MonthBudgetSummaryDto
 
 internal class BudgetService
 {
-    private int userId;
-    private IRegularBudgetRepo regularBudgetRepo;
-    private ISingularBudgetRepo singularBudgetRepo;
+    // injectable
+    public int userId;
+    public IRegularBudgetRepo regularBudgetRepo;
+    public ISingularBudgetRepo singularBudgetRepo;
+    public IPeriodRepo periodRepo;
 
     private List<IRegularBudgetItem> regularExpenses;
     private List<IRegularBudgetItem> regularIncomes;
 
-    public BudgetService(int userId, IRegularBudgetRepo regularBudgetRepo, ISingularBudgetRepo singularBudgetRepo)
-    {
-        this.userId = userId;
-        this.regularBudgetRepo = regularBudgetRepo;
-        this.singularBudgetRepo = singularBudgetRepo;
-    }
-
     public void addRegularBudgetItem(RegularBudgetCreationDto dto) => regularBudgetRepo.addItem(userId, dto);
 
     public void addSingularBudgetItem(SingularBudgetCreationDto dto) => singularBudgetRepo.addItem(userId, dto);
+
+    public List<GetPeriodDto> getAllPeriods() => periodRepo.getAllPeriods();
 
     private int getMonthRegularIncome(int month)
     {
