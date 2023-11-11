@@ -32,6 +32,7 @@
             flowLayoutPanel3 = new FlowLayoutPanel();
             notesButton = new Button();
             budgetButton = new Button();
+            colorModeButton = new Button();
             flowLayoutPanel2 = new FlowLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             calendar = new MonthCalendar();
@@ -48,8 +49,8 @@
             openCalcNote = new Button();
             datePicker = new DateTimePicker();
             createNoteButton = new Button();
-            label2 = new Label();
-            label1 = new Label();
+            dateFormLabel = new Label();
+            titleFormLabel = new Label();
             mainLayoutPanel = new FlowLayoutPanel();
             mainLayoutPanel.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
@@ -78,10 +79,11 @@
             flowLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel3.Controls.Add(notesButton);
             flowLayoutPanel3.Controls.Add(budgetButton);
+            flowLayoutPanel3.Controls.Add(colorModeButton);
             flowLayoutPanel3.Location = new Point(53, 53);
             flowLayoutPanel3.Margin = new Padding(3, 3, 3, 50);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(226, 49);
+            flowLayoutPanel3.Size = new Size(339, 49);
             flowLayoutPanel3.TabIndex = 8;
             // 
             // notesButton
@@ -111,6 +113,19 @@
             budgetButton.Text = "Финансы";
             budgetButton.UseVisualStyleBackColor = true;
             budgetButton.Click += budgetButton_Click;
+            // 
+            // colorModeButton
+            // 
+            colorModeButton.BackgroundImageLayout = ImageLayout.None;
+            colorModeButton.FlatStyle = FlatStyle.Flat;
+            colorModeButton.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            colorModeButton.Location = new Point(229, 3);
+            colorModeButton.Name = "colorModeButton";
+            colorModeButton.Size = new Size(107, 41);
+            colorModeButton.TabIndex = 11;
+            colorModeButton.Text = "Тема";
+            colorModeButton.UseVisualStyleBackColor = true;
+            colorModeButton.Click += colorModeButton_Click;
             // 
             // flowLayoutPanel2
             // 
@@ -200,6 +215,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(3, 0);
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(108, 28);
@@ -247,8 +263,8 @@
             FormPanel.Controls.Add(openCalcNote);
             FormPanel.Controls.Add(datePicker);
             FormPanel.Controls.Add(createNoteButton);
-            FormPanel.Controls.Add(label2);
-            FormPanel.Controls.Add(label1);
+            FormPanel.Controls.Add(dateFormLabel);
+            FormPanel.Controls.Add(titleFormLabel);
             FormPanel.Location = new Point(53, 501);
             FormPanel.Name = "FormPanel";
             FormPanel.Size = new Size(584, 231);
@@ -290,6 +306,7 @@
             openCalcNote.TabIndex = 24;
             openCalcNote.Text = "Калькулятор";
             openCalcNote.UseVisualStyleBackColor = true;
+            openCalcNote.Click += openCalcNote_Click;
             // 
             // datePicker
             // 
@@ -317,27 +334,27 @@
             createNoteButton.UseVisualStyleBackColor = true;
             createNoteButton.Click += createNoteButton_Click;
             // 
-            // label2
+            // dateFormLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(238, 238, 238);
-            label2.Location = new Point(353, 8);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 28);
-            label2.TabIndex = 22;
-            label2.Text = "Дата";
+            dateFormLabel.AutoSize = true;
+            dateFormLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateFormLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            dateFormLabel.Location = new Point(353, 8);
+            dateFormLabel.Name = "dateFormLabel";
+            dateFormLabel.Size = new Size(54, 28);
+            dateFormLabel.TabIndex = 22;
+            dateFormLabel.Text = "Дата";
             // 
-            // label1
+            // titleFormLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(238, 238, 238);
-            label1.Location = new Point(0, 8);
-            label1.Name = "label1";
-            label1.Size = new Size(100, 28);
-            label1.TabIndex = 21;
-            label1.Text = "Название";
+            titleFormLabel.AutoSize = true;
+            titleFormLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            titleFormLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            titleFormLabel.Location = new Point(0, 8);
+            titleFormLabel.Name = "titleFormLabel";
+            titleFormLabel.Size = new Size(100, 28);
+            titleFormLabel.TabIndex = 21;
+            titleFormLabel.Text = "Название";
             // 
             // NotesView
             // 
@@ -374,9 +391,9 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel4;
-        private Label label1;
+        private Label titleFormLabel;
         private TextBox titleTextBox;
-        private Label label2;
+        private Label dateFormLabel;
         private DateTimePicker datePicker;
         private TextBox noteTextBox;
         private Button createNoteButton;
@@ -386,5 +403,6 @@
         private Label noteTextLabel;
         private FlowLayoutPanel noteLayoutPanel;
         private Panel FormPanel;
+        private Button colorModeButton;
     }
 }

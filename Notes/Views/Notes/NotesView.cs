@@ -29,6 +29,8 @@ public partial class NotesView : Form
 
         notesListView.Visible = false;
         noteLayoutPanel.Visible = false;
+
+        setLayoutTheme();
     }
 
     private void NotesList_FormClosed(object sender, FormClosedEventArgs e)
@@ -103,5 +105,38 @@ public partial class NotesView : Form
             titleTextBox.Text = "";
             noteTextBox.Text = "";
         }
+    }
+
+    private void setLayoutTheme()
+    {
+        var theme = ColorModeState.getInstance();
+
+        this.BackColor = theme.bgPrimary;
+        this.colorModeButton.ForeColor = theme.textPrimary;
+        this.notesListView.BackColor = theme.bgSecondary;
+        this.notesListView.ForeColor = theme.textPrimary;
+        this.titleLabel.ForeColor = theme.textPrimary;
+        this.dateLabel.ForeColor = theme.textSecondary;
+        this.noteTextLabel.ForeColor = theme.textSecondary;
+        this.titleFormLabel.ForeColor = theme.textSecondary;
+        this.dateFormLabel.ForeColor = theme.textSecondary;
+        this.titleTextBox.BackColor = theme.bgSecondary;
+        this.titleTextBox.ForeColor = theme.textSecondary;
+        this.noteTextBox.BackColor = theme.bgSecondary;
+        this.noteTextBox.ForeColor = theme.textSecondary;
+    }
+
+    private void colorModeButton_Click(object sender, EventArgs e)
+    {
+        var colorMode = ColorModeState.getInstance();
+
+        colorMode.setColorMode(colorMode.mode == "dark" ? "light" : "dark");
+
+        setLayoutTheme();
+    }
+
+    private void openCalcNote_Click(object sender, EventArgs e)
+    {
+        new CalculatorView().Show();
     }
 }

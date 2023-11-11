@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Drawing.Imaging;
 using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
 
@@ -14,8 +15,10 @@ public partial class AuthView : Form
 
     public AuthView()
     {
+        ColorModeState.createInstance("dark");
         InitializeComponent();
         this.authService = new AuthService(new AuthXamppRepo());
+        setLayoutTheme();
     }
 
     private void loginButton_Click(object sender, EventArgs e)
@@ -33,7 +36,8 @@ public partial class AuthView : Form
             UserState.createInstance(userId);
             new NotesView().Show();
             this.Hide();
-        } catch
+        }
+        catch
         {
             MessageBox.Show("Ошибка входа");
         }
@@ -54,9 +58,34 @@ public partial class AuthView : Form
             UserState.createInstance(userId);
             new NotesView().Show();
             this.Hide();
-        } catch
+        }
+        catch
         {
             MessageBox.Show("Ошибка регистрации");
         }
+    }
+
+    private void setLayoutTheme()
+    {
+        var theme = ColorModeState.getInstance();
+
+        this.BackColor = theme.bgPrimary;
+        this.mainLabel.ForeColor = theme.textPrimary;
+        this.loginLabel.ForeColor = theme.textSecondary;
+        this.passwordLabel.ForeColor = theme.textSecondary;
+        this.loginTextBox.BackColor = theme.bgSecondary;
+        this.loginTextBox.ForeColor = theme.textSecondary;
+        this.passwordTextBox.BackColor = theme.bgSecondary;
+        this.passwordTextBox.ForeColor = theme.textSecondary;
+        this.colorModeButton.ForeColor = theme.textSecondary;
+    }
+
+    private void colorModeButton_Click(object sender, EventArgs e)
+    {
+        var colorMode = ColorModeState.getInstance();
+
+        colorMode.setColorMode(colorMode.mode == "dark" ? "light" : "dark");
+
+        setLayoutTheme();
     }
 }

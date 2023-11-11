@@ -16,12 +16,26 @@ public partial class CalculatorView : Form
     public CalculatorView()
     {
         InitializeComponent();
+        setLayoutTheme();
     }
 
     private void resetButton_Click(object sender, EventArgs e)
     {
         expressionBox.Text = "";
         resultLabel.Text = "";
+    }
+
+    private void setLayoutTheme()
+    {
+        var theme = ColorModeState.getInstance();
+
+        this.BackColor = theme.bgPrimary;
+        this.title.ForeColor = theme.textPrimary;
+        this.expressionBox.BackColor = theme.bgSecondary;
+        this.expressionBox.ForeColor = theme.textSecondary;
+        this.resetButton.ForeColor = theme.textPrimary;
+        this.submitButton.ForeColor = theme.textPrimary;
+        this.resultLabel.ForeColor = theme.textPrimary;
     }
 
     private void submitButton_Click(object sender, EventArgs e)

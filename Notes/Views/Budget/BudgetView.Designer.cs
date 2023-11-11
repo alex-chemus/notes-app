@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label2 = new Label();
+            amountBudgetLabel = new Label();
             amountTextBox = new TextBox();
             incomeRadio = new RadioButton();
             expenseRadio = new RadioButton();
-            label3 = new Label();
+            periodTitle = new Label();
             incomeGroup = new GroupBox();
-            groupBox1 = new GroupBox();
+            periodBox = new GroupBox();
             singularRadio = new RadioButton();
             regularRadio = new RadioButton();
             periodCombo = new ComboBox();
-            label4 = new Label();
+            dateTitle = new Label();
             dateTimePicker1 = new DateTimePicker();
             submitButton = new Button();
             sumInputPanel = new Panel();
@@ -49,15 +49,33 @@
             flowLayoutPanel3 = new FlowLayoutPanel();
             notesButton = new Button();
             budgetButton = new Button();
+            colorModeButton = new Button();
             dataGridView = new DataGridView();
             month = new DataGridViewTextBoxColumn();
             income = new DataGridViewTextBoxColumn();
             expense = new DataGridViewTextBoxColumn();
             diff = new DataGridViewTextBoxColumn();
             flowLayoutPanel4 = new FlowLayoutPanel();
-            flowLayoutPanel5 = new FlowLayoutPanel();
+            goalViewPanel = new FlowLayoutPanel();
+            goalTitle = new Label();
+            goalNameLabel = new Label();
+            goalAmountLabel = new Label();
+            goalDeadlineLabel = new Label();
+            goalReachedLabel = new Label();
+            goalRemainderLabel = new Label();
+            goalTrendLabel = new Label();
+            goalFormPanel = new FlowLayoutPanel();
+            goalFormTitle = new Label();
+            goalFormName = new Label();
+            goalNameTextbox = new TextBox();
+            goalFormAmount = new Label();
+            goalAmountTextbox = new TextBox();
+            goalFormDeadline = new Label();
+            goalDeadlineDatepicker = new DateTimePicker();
+            createGoalButton = new Button();
+            flowLayoutPanel6 = new FlowLayoutPanel();
             incomeGroup.SuspendLayout();
-            groupBox1.SuspendLayout();
+            periodBox.SuspendLayout();
             sumInputPanel.SuspendLayout();
             periodComboPanel.SuspendLayout();
             panel1.SuspendLayout();
@@ -66,19 +84,21 @@
             flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             flowLayoutPanel4.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
+            goalViewPanel.SuspendLayout();
+            goalFormPanel.SuspendLayout();
+            flowLayoutPanel6.SuspendLayout();
             SuspendLayout();
             // 
-            // label2
+            // amountBudgetLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(238, 238, 238);
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 24);
-            label2.TabIndex = 1;
-            label2.Text = "Сумма";
+            amountBudgetLabel.AutoSize = true;
+            amountBudgetLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            amountBudgetLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            amountBudgetLabel.Location = new Point(3, 0);
+            amountBudgetLabel.Name = "amountBudgetLabel";
+            amountBudgetLabel.Size = new Size(68, 24);
+            amountBudgetLabel.TabIndex = 1;
+            amountBudgetLabel.Text = "Сумма";
             // 
             // amountTextBox
             // 
@@ -116,16 +136,16 @@
             expenseRadio.Text = "Расход";
             expenseRadio.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // periodTitle
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.FromArgb(238, 238, 238);
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(224, 24);
-            label3.TabIndex = 5;
-            label3.Text = "Период (если регулярно)";
+            periodTitle.AutoSize = true;
+            periodTitle.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            periodTitle.ForeColor = Color.FromArgb(238, 238, 238);
+            periodTitle.Location = new Point(0, 0);
+            periodTitle.Name = "periodTitle";
+            periodTitle.Size = new Size(224, 24);
+            periodTitle.TabIndex = 5;
+            periodTitle.Text = "Период (если регулярно)";
             // 
             // incomeGroup
             // 
@@ -134,8 +154,7 @@
             incomeGroup.FlatStyle = FlatStyle.Flat;
             incomeGroup.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
             incomeGroup.ForeColor = Color.FromArgb(238, 238, 238);
-            incomeGroup.Location = new Point(3, 4);
-            incomeGroup.Margin = new Padding(3, 4, 25, 4);
+            incomeGroup.Location = new Point(3, 3);
             incomeGroup.Name = "incomeGroup";
             incomeGroup.Padding = new Padding(3, 4, 3, 4);
             incomeGroup.Size = new Size(229, 133);
@@ -143,20 +162,20 @@
             incomeGroup.TabStop = false;
             incomeGroup.Text = "Тип операции";
             // 
-            // groupBox1
+            // periodBox
             // 
-            groupBox1.Controls.Add(singularRadio);
-            groupBox1.Controls.Add(regularRadio);
-            groupBox1.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.ForeColor = Color.FromArgb(238, 238, 238);
-            groupBox1.Location = new Point(260, 4);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(229, 133);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Периодичность";
+            periodBox.Controls.Add(singularRadio);
+            periodBox.Controls.Add(regularRadio);
+            periodBox.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            periodBox.ForeColor = Color.FromArgb(238, 238, 238);
+            periodBox.Location = new Point(3, 143);
+            periodBox.Margin = new Padding(3, 4, 3, 4);
+            periodBox.Name = "periodBox";
+            periodBox.Padding = new Padding(3, 4, 3, 4);
+            periodBox.Size = new Size(229, 133);
+            periodBox.TabIndex = 7;
+            periodBox.TabStop = false;
+            periodBox.Text = "Периодичность";
             // 
             // singularRadio
             // 
@@ -195,16 +214,16 @@
             periodCombo.Size = new Size(138, 32);
             periodCombo.TabIndex = 8;
             // 
-            // label4
+            // dateTitle
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.FromArgb(238, 238, 238);
-            label4.Location = new Point(0, 3);
-            label4.Name = "label4";
-            label4.Size = new Size(173, 24);
-            label4.TabIndex = 9;
-            label4.Text = "Дата (если разово)";
+            dateTitle.AutoSize = true;
+            dateTitle.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTitle.ForeColor = Color.FromArgb(238, 238, 238);
+            dateTitle.Location = new Point(0, 3);
+            dateTitle.Name = "dateTitle";
+            dateTitle.Size = new Size(173, 24);
+            dateTitle.TabIndex = 9;
+            dateTitle.Text = "Дата (если разово)";
             // 
             // dateTimePicker1
             // 
@@ -222,7 +241,7 @@
             submitButton.FlatStyle = FlatStyle.Flat;
             submitButton.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
             submitButton.ForeColor = Color.FromArgb(253, 112, 20);
-            submitButton.Location = new Point(3, 430);
+            submitButton.Location = new Point(3, 569);
             submitButton.Margin = new Padding(3, 4, 3, 4);
             submitButton.Name = "submitButton";
             submitButton.Size = new Size(106, 41);
@@ -235,7 +254,7 @@
             // 
             sumInputPanel.AutoSize = true;
             sumInputPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            sumInputPanel.Controls.Add(label2);
+            sumInputPanel.Controls.Add(amountBudgetLabel);
             sumInputPanel.Controls.Add(amountTextBox);
             sumInputPanel.Location = new Point(3, 3);
             sumInputPanel.Margin = new Padding(3, 3, 3, 20);
@@ -247,9 +266,9 @@
             // 
             periodComboPanel.AutoSize = true;
             periodComboPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            periodComboPanel.Controls.Add(label3);
+            periodComboPanel.Controls.Add(periodTitle);
             periodComboPanel.Controls.Add(periodCombo);
-            periodComboPanel.Location = new Point(3, 254);
+            periodComboPanel.Location = new Point(3, 393);
             periodComboPanel.Margin = new Padding(3, 3, 3, 20);
             periodComboPanel.Name = "periodComboPanel";
             periodComboPanel.Size = new Size(227, 64);
@@ -260,8 +279,8 @@
             panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.Controls.Add(dateTimePicker1);
-            panel1.Controls.Add(label4);
-            panel1.Location = new Point(3, 341);
+            panel1.Controls.Add(dateTitle);
+            panel1.Location = new Point(3, 480);
             panel1.Margin = new Padding(3, 3, 3, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(233, 65);
@@ -277,9 +296,9 @@
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(submitButton);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 105);
+            flowLayoutPanel1.Location = new Point(28, 178);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(498, 475);
+            flowLayoutPanel1.Size = new Size(241, 614);
             flowLayoutPanel1.TabIndex = 16;
             // 
             // flowLayoutPanel2
@@ -287,11 +306,11 @@
             flowLayoutPanel2.AutoSize = true;
             flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel2.Controls.Add(incomeGroup);
-            flowLayoutPanel2.Controls.Add(groupBox1);
+            flowLayoutPanel2.Controls.Add(periodBox);
             flowLayoutPanel2.Location = new Point(3, 90);
             flowLayoutPanel2.Margin = new Padding(3, 3, 3, 20);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(492, 141);
+            flowLayoutPanel2.Size = new Size(235, 280);
             flowLayoutPanel2.TabIndex = 17;
             // 
             // flowLayoutPanel3
@@ -300,10 +319,11 @@
             flowLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel3.Controls.Add(notesButton);
             flowLayoutPanel3.Controls.Add(budgetButton);
-            flowLayoutPanel3.Location = new Point(3, 3);
-            flowLayoutPanel3.Margin = new Padding(3, 3, 3, 50);
+            flowLayoutPanel3.Controls.Add(colorModeButton);
+            flowLayoutPanel3.Location = new Point(28, 28);
+            flowLayoutPanel3.Margin = new Padding(3, 3, 3, 51);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(226, 49);
+            flowLayoutPanel3.Size = new Size(226, 96);
             flowLayoutPanel3.TabIndex = 17;
             // 
             // notesButton
@@ -334,6 +354,20 @@
             budgetButton.Text = "Финансы";
             budgetButton.UseVisualStyleBackColor = false;
             // 
+            // colorModeButton
+            // 
+            colorModeButton.BackgroundImageLayout = ImageLayout.None;
+            colorModeButton.FlatStyle = FlatStyle.Flat;
+            colorModeButton.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            colorModeButton.ForeColor = Color.White;
+            colorModeButton.Location = new Point(3, 52);
+            colorModeButton.Name = "colorModeButton";
+            colorModeButton.Size = new Size(107, 41);
+            colorModeButton.TabIndex = 12;
+            colorModeButton.Text = "Тема";
+            colorModeButton.UseVisualStyleBackColor = true;
+            colorModeButton.Click += colorModeButton_Click;
+            // 
             // dataGridView
             // 
             dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
@@ -341,12 +375,11 @@
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { month, income, expense, diff });
             dataGridView.GridColor = Color.FromArgb(238, 238, 238);
-            dataGridView.Location = new Point(610, 54);
-            dataGridView.Margin = new Padding(3, 4, 3, 4);
+            dataGridView.Location = new Point(323, 25);
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 51;
             dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(555, 583);
+            dataGridView.Size = new Size(554, 871);
             dataGridView.TabIndex = 18;
             // 
             // month
@@ -387,39 +420,255 @@
             flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel4.Controls.Add(flowLayoutPanel3);
             flowLayoutPanel4.Controls.Add(flowLayoutPanel1);
+            flowLayoutPanel4.Dock = DockStyle.Left;
             flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel4.Location = new Point(53, 53);
+            flowLayoutPanel4.Location = new Point(25, 25);
             flowLayoutPanel4.Margin = new Padding(3, 3, 50, 3);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(504, 583);
+            flowLayoutPanel4.Padding = new Padding(25);
+            flowLayoutPanel4.Size = new Size(297, 1005);
             flowLayoutPanel4.TabIndex = 19;
             // 
-            // flowLayoutPanel5
+            // goalViewPanel
             // 
-            flowLayoutPanel5.Controls.Add(flowLayoutPanel4);
-            flowLayoutPanel5.Controls.Add(dataGridView);
-            flowLayoutPanel5.Dock = DockStyle.Fill;
-            flowLayoutPanel5.Location = new Point(0, 0);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(50);
-            flowLayoutPanel5.Size = new Size(1222, 713);
-            flowLayoutPanel5.TabIndex = 20;
+            goalViewPanel.AutoSize = true;
+            goalViewPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            goalViewPanel.Controls.Add(goalTitle);
+            goalViewPanel.Controls.Add(goalNameLabel);
+            goalViewPanel.Controls.Add(goalAmountLabel);
+            goalViewPanel.Controls.Add(goalDeadlineLabel);
+            goalViewPanel.Controls.Add(goalReachedLabel);
+            goalViewPanel.Controls.Add(goalRemainderLabel);
+            goalViewPanel.Controls.Add(goalTrendLabel);
+            goalViewPanel.FlowDirection = FlowDirection.TopDown;
+            goalViewPanel.Location = new Point(28, 28);
+            goalViewPanel.Name = "goalViewPanel";
+            goalViewPanel.Size = new Size(169, 237);
+            goalViewPanel.TabIndex = 22;
+            // 
+            // goalTitle
+            // 
+            goalTitle.AutoSize = true;
+            goalTitle.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            goalTitle.ForeColor = Color.White;
+            goalTitle.Location = new Point(3, 0);
+            goalTitle.Margin = new Padding(3, 0, 3, 15);
+            goalTitle.Name = "goalTitle";
+            goalTitle.Size = new Size(62, 28);
+            goalTitle.TabIndex = 6;
+            goalTitle.Text = "Цель";
+            // 
+            // goalNameLabel
+            // 
+            goalNameLabel.AutoSize = true;
+            goalNameLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalNameLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            goalNameLabel.Location = new Point(3, 43);
+            goalNameLabel.Margin = new Padding(3, 0, 3, 10);
+            goalNameLabel.Name = "goalNameLabel";
+            goalNameLabel.Size = new Size(97, 24);
+            goalNameLabel.TabIndex = 0;
+            goalNameLabel.Text = "Название:";
+            // 
+            // goalAmountLabel
+            // 
+            goalAmountLabel.AutoSize = true;
+            goalAmountLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalAmountLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            goalAmountLabel.Location = new Point(3, 77);
+            goalAmountLabel.Margin = new Padding(3, 0, 3, 10);
+            goalAmountLabel.Name = "goalAmountLabel";
+            goalAmountLabel.Size = new Size(73, 24);
+            goalAmountLabel.TabIndex = 1;
+            goalAmountLabel.Text = "Сумма:";
+            // 
+            // goalDeadlineLabel
+            // 
+            goalDeadlineLabel.AutoSize = true;
+            goalDeadlineLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalDeadlineLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            goalDeadlineLabel.Location = new Point(3, 111);
+            goalDeadlineLabel.Margin = new Padding(3, 0, 3, 10);
+            goalDeadlineLabel.Name = "goalDeadlineLabel";
+            goalDeadlineLabel.Size = new Size(57, 24);
+            goalDeadlineLabel.TabIndex = 2;
+            goalDeadlineLabel.Text = "Срок:";
+            // 
+            // goalReachedLabel
+            // 
+            goalReachedLabel.AutoSize = true;
+            goalReachedLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalReachedLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            goalReachedLabel.Location = new Point(3, 145);
+            goalReachedLabel.Margin = new Padding(3, 0, 3, 10);
+            goalReachedLabel.Name = "goalReachedLabel";
+            goalReachedLabel.Size = new Size(112, 24);
+            goalReachedLabel.TabIndex = 3;
+            goalReachedLabel.Text = "Достигнуто:";
+            // 
+            // goalRemainderLabel
+            // 
+            goalRemainderLabel.AutoSize = true;
+            goalRemainderLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalRemainderLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            goalRemainderLabel.Location = new Point(3, 179);
+            goalRemainderLabel.Margin = new Padding(3, 0, 3, 10);
+            goalRemainderLabel.Name = "goalRemainderLabel";
+            goalRemainderLabel.Size = new Size(82, 24);
+            goalRemainderLabel.TabIndex = 4;
+            goalRemainderLabel.Text = "Остаток:";
+            // 
+            // goalTrendLabel
+            // 
+            goalTrendLabel.AutoSize = true;
+            goalTrendLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalTrendLabel.ForeColor = Color.FromArgb(238, 238, 238);
+            goalTrendLabel.Location = new Point(3, 213);
+            goalTrendLabel.Name = "goalTrendLabel";
+            goalTrendLabel.Size = new Size(163, 24);
+            goalTrendLabel.TabIndex = 5;
+            goalTrendLabel.Text = "Будет достингуто:";
+            // 
+            // goalFormPanel
+            // 
+            goalFormPanel.AutoSize = true;
+            goalFormPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            goalFormPanel.Controls.Add(goalFormTitle);
+            goalFormPanel.Controls.Add(goalFormName);
+            goalFormPanel.Controls.Add(goalNameTextbox);
+            goalFormPanel.Controls.Add(goalFormAmount);
+            goalFormPanel.Controls.Add(goalAmountTextbox);
+            goalFormPanel.Controls.Add(goalFormDeadline);
+            goalFormPanel.Controls.Add(goalDeadlineDatepicker);
+            goalFormPanel.Controls.Add(createGoalButton);
+            goalFormPanel.FlowDirection = FlowDirection.TopDown;
+            goalFormPanel.Location = new Point(28, 271);
+            goalFormPanel.Name = "goalFormPanel";
+            goalFormPanel.Size = new Size(256, 304);
+            goalFormPanel.TabIndex = 23;
+            // 
+            // goalFormTitle
+            // 
+            goalFormTitle.AutoSize = true;
+            goalFormTitle.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            goalFormTitle.ForeColor = Color.White;
+            goalFormTitle.Location = new Point(3, 0);
+            goalFormTitle.Margin = new Padding(3, 0, 3, 20);
+            goalFormTitle.Name = "goalFormTitle";
+            goalFormTitle.Size = new Size(143, 28);
+            goalFormTitle.TabIndex = 0;
+            goalFormTitle.Text = "Создать цель";
+            // 
+            // goalFormName
+            // 
+            goalFormName.AutoSize = true;
+            goalFormName.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalFormName.ForeColor = Color.FromArgb(238, 238, 238);
+            goalFormName.Location = new Point(3, 48);
+            goalFormName.Name = "goalFormName";
+            goalFormName.Size = new Size(92, 24);
+            goalFormName.TabIndex = 2;
+            goalFormName.Text = "Нзавание";
+            // 
+            // goalNameTextbox
+            // 
+            goalNameTextbox.BackColor = Color.FromArgb(57, 62, 70);
+            goalNameTextbox.BorderStyle = BorderStyle.FixedSingle;
+            goalNameTextbox.ForeColor = Color.FromArgb(238, 238, 238);
+            goalNameTextbox.Location = new Point(3, 75);
+            goalNameTextbox.Margin = new Padding(3, 3, 3, 15);
+            goalNameTextbox.Name = "goalNameTextbox";
+            goalNameTextbox.Size = new Size(247, 27);
+            goalNameTextbox.TabIndex = 1;
+            // 
+            // goalFormAmount
+            // 
+            goalFormAmount.AutoSize = true;
+            goalFormAmount.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalFormAmount.ForeColor = Color.FromArgb(238, 238, 238);
+            goalFormAmount.Location = new Point(3, 117);
+            goalFormAmount.Name = "goalFormAmount";
+            goalFormAmount.Size = new Size(68, 24);
+            goalFormAmount.TabIndex = 4;
+            goalFormAmount.Text = "Сумма";
+            // 
+            // goalAmountTextbox
+            // 
+            goalAmountTextbox.BackColor = Color.FromArgb(57, 62, 70);
+            goalAmountTextbox.BorderStyle = BorderStyle.FixedSingle;
+            goalAmountTextbox.ForeColor = Color.FromArgb(238, 238, 238);
+            goalAmountTextbox.Location = new Point(3, 144);
+            goalAmountTextbox.Margin = new Padding(3, 3, 3, 15);
+            goalAmountTextbox.Name = "goalAmountTextbox";
+            goalAmountTextbox.Size = new Size(247, 27);
+            goalAmountTextbox.TabIndex = 5;
+            // 
+            // goalFormDeadline
+            // 
+            goalFormDeadline.AutoSize = true;
+            goalFormDeadline.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalFormDeadline.ForeColor = Color.FromArgb(238, 238, 238);
+            goalFormDeadline.Location = new Point(3, 186);
+            goalFormDeadline.Name = "goalFormDeadline";
+            goalFormDeadline.Size = new Size(52, 24);
+            goalFormDeadline.TabIndex = 6;
+            goalFormDeadline.Text = "Срок";
+            // 
+            // goalDeadlineDatepicker
+            // 
+            goalDeadlineDatepicker.CalendarFont = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            goalDeadlineDatepicker.Location = new Point(3, 213);
+            goalDeadlineDatepicker.Margin = new Padding(3, 3, 3, 15);
+            goalDeadlineDatepicker.Name = "goalDeadlineDatepicker";
+            goalDeadlineDatepicker.Size = new Size(250, 27);
+            goalDeadlineDatepicker.TabIndex = 7;
+            // 
+            // createGoalButton
+            // 
+            createGoalButton.FlatStyle = FlatStyle.Flat;
+            createGoalButton.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            createGoalButton.ForeColor = Color.FromArgb(253, 112, 20);
+            createGoalButton.Location = new Point(3, 259);
+            createGoalButton.Margin = new Padding(3, 4, 3, 4);
+            createGoalButton.Name = "createGoalButton";
+            createGoalButton.Size = new Size(106, 41);
+            createGoalButton.TabIndex = 12;
+            createGoalButton.Text = "Создать";
+            createGoalButton.UseVisualStyleBackColor = true;
+            createGoalButton.Click += createGoalButton_Click;
+            // 
+            // flowLayoutPanel6
+            // 
+            flowLayoutPanel6.AutoSize = true;
+            flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel6.Controls.Add(goalViewPanel);
+            flowLayoutPanel6.Controls.Add(goalFormPanel);
+            flowLayoutPanel6.Dock = DockStyle.Right;
+            flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel6.Location = new Point(1089, 25);
+            flowLayoutPanel6.Name = "flowLayoutPanel6";
+            flowLayoutPanel6.Padding = new Padding(25);
+            flowLayoutPanel6.Size = new Size(312, 1005);
+            flowLayoutPanel6.TabIndex = 24;
             // 
             // BudgetView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(39, 40, 41);
-            ClientSize = new Size(1222, 713);
-            Controls.Add(flowLayoutPanel5);
+            ClientSize = new Size(1426, 1055);
+            Controls.Add(flowLayoutPanel6);
+            Controls.Add(flowLayoutPanel4);
+            Controls.Add(dataGridView);
             Margin = new Padding(3, 4, 3, 4);
             Name = "BudgetView";
+            Padding = new Padding(25);
             Text = "BudgetForm";
             Load += BudgetForm_Load;
             incomeGroup.ResumeLayout(false);
             incomeGroup.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            periodBox.ResumeLayout(false);
+            periodBox.PerformLayout();
             sumInputPanel.ResumeLayout(false);
             sumInputPanel.PerformLayout();
             periodComboPanel.ResumeLayout(false);
@@ -433,23 +682,28 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             flowLayoutPanel4.ResumeLayout(false);
             flowLayoutPanel4.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
+            goalViewPanel.ResumeLayout(false);
+            goalViewPanel.PerformLayout();
+            goalFormPanel.ResumeLayout(false);
+            goalFormPanel.PerformLayout();
+            flowLayoutPanel6.ResumeLayout(false);
+            flowLayoutPanel6.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private Label label2;
+        private Label amountBudgetLabel;
         private TextBox amountTextBox;
         private RadioButton incomeRadio;
         private RadioButton expenseRadio;
-        private Label label3;
+        private Label periodTitle;
         private GroupBox incomeGroup;
-        private GroupBox groupBox1;
+        private GroupBox periodBox;
         private RadioButton singularRadio;
         private RadioButton regularRadio;
         private ComboBox periodCombo;
-        private Label label4;
+        private Label dateTitle;
         private DateTimePicker dateTimePicker1;
         private Button submitButton;
         private Panel sumInputPanel;
@@ -466,6 +720,24 @@
         private DataGridViewTextBoxColumn expense;
         private DataGridViewTextBoxColumn diff;
         private FlowLayoutPanel flowLayoutPanel4;
-        private FlowLayoutPanel flowLayoutPanel5;
+        private FlowLayoutPanel goalViewPanel;
+        private Label goalNameLabel;
+        private Label goalAmountLabel;
+        private Label goalDeadlineLabel;
+        private Label goalReachedLabel;
+        private Label goalRemainderLabel;
+        private Label goalTitle;
+        private Label goalTrendLabel;
+        private FlowLayoutPanel goalFormPanel;
+        private Label goalFormTitle;
+        private Label goalFormName;
+        private TextBox goalNameTextbox;
+        private Label goalFormAmount;
+        private TextBox goalAmountTextbox;
+        private Label goalFormDeadline;
+        private DateTimePicker goalDeadlineDatepicker;
+        private Button createGoalButton;
+        private FlowLayoutPanel flowLayoutPanel6;
+        private Button colorModeButton;
     }
 }

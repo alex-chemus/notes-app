@@ -8,6 +8,12 @@ record MonthBudgetSummaryDto
     public int diff { get; init; }
 }
 
+record AggregatedSummaryDto
+{
+    public int month { get; init; }
+    public int summary { get; init; }
+}
+
 internal class BudgetService
 {
     // injectable
@@ -89,5 +95,26 @@ internal class BudgetService
         for (int i = 1; i <= 12; i++)
             monthBudgetSummary.Add(getMonthSummary(i));
         return monthBudgetSummary;
+    }
+
+    public List<AggregatedSummaryDto> getAggregatedSummary()
+    {
+        var aggregatedSummary = new List<AggregatedSummaryDto>();
+
+        var summary = getSummary();
+
+        int remainder = 0;
+
+        foreach (var monthSummary in summary)
+        {
+            remainder += monthSummary.diff;
+            aggregatedSummary.Add(new AggregatedSummaryDto
+            {
+                month = monthSummary.month,
+                summary = remainder
+            });
+        }
+
+        return aggregatedSummary;
     }
 }
